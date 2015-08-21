@@ -1,0 +1,24 @@
+{
+  "name": "inception-base",
+  "version": "0.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "*"
+  },
+  "devDependencies": {
+    "autoprefixer-core": "*",
+    "gulp": "*",
+    "gulp-jade-php": "*",
+    "gulp-jsbeautifier": "*",
+    "gulp-postcss": "*",
+    "gulp-stylint": "*",
+    "gulp-stylus": "*",
+    "gulp.spritesmith": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Niktia Yustovskiy",
+  "license": "ISC"
+}
