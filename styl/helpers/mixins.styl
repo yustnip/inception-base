@@ -1,3 +1,4 @@
+// For spritesmith sprites
 spriteWidth($sprite) {
   width: $sprite[4];
 }
@@ -11,12 +12,23 @@ spritePosition($sprite) {
 }
 
 spriteImage($sprite) {
-  background-image: url(images/$sprite[8]);
+  background-image: url(../images/$sprite[8]);
 }
 
 sprite($sprite) {
-  spriteImage($sprite)
-  spritePosition($sprite)
   spriteWidth($sprite)
   spriteHeight($sprite)
+  spriteImage($sprite)
+  spritePosition($sprite)
 }
+
+// Other
+placeholder()
+    &::-webkit-input-placeholder
+        {block}
+    &:-moz-placeholder
+        {block}
+    &::-moz-placeholder
+        {block}
+    &:-ms-input-placeholder
+        {block}
