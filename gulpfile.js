@@ -1,14 +1,15 @@
 var gulp = require('gulp'),
-    jade = require('gulp-jade-php'),
+    jade = require('gulp-jade'),
+    rename = require('gulp-rename'),
     stylus = require('gulp-stylus'),
     prettify = require('gulp-jsbeautifier'),
     postcss = require('gulp-postcss'),
-    autoprefixer = require('autoprefixer-core');
-    stylint = require('gulp-stylint');
+    autoprefixer = require('autoprefixer-core'),
+    stylint = require('gulp-stylint'),
     spritesmith = require('gulp.spritesmith');
 
 
-gulp.task('jade-php', function(){
+gulp.task('jade', function(){
 	gulp.src('./jade/*.jade')
 		.pipe(jade({ pretty: true }))
         .pipe(prettify({
@@ -17,6 +18,9 @@ gulp.task('jade-php', function(){
             indent_inner_html: true
         }))
 		.on('error', console.log) // Выводим ошибки в консоль
+        .pipe(rename({ //Изменяем расширение на .php
+            extname: '.php'
+        }))
 		.pipe(gulp.dest('./'));
 });
 
@@ -90,4 +94,4 @@ gulp.task('spritesmith', function() {
     spriteData.css.pipe(gulp.dest('./styl/helpers/')); // путь, куда сохраняем стили
 });
 
-gulp.task( 'default', ['jade-php', 'stylus', 'stylint', 'spritesmith'] );
+gulp.task( 'default', ['jade', 'stylus', 'stylint', 'spritesmith'] );

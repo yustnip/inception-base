@@ -9,9 +9,10 @@
   "devDependencies": {
     "autoprefixer-core": "*",
     "gulp": "*",
-    "gulp-jade-php": "*",
+    "gulp-jade": "*",
     "gulp-jsbeautifier": "*",
     "gulp-postcss": "*",
+    "gulp-rename": "*",
     "gulp-stylint": "*",
     "gulp-stylus": "*",
     "gulp.spritesmith": "*"
