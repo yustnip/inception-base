@@ -6,7 +6,9 @@ var gulp = require('gulp'),
     postcss = require('gulp-postcss'),
     autoprefixer = require('autoprefixer-core'),
     stylint = require('gulp-stylint'),
-    spritesmith = require('gulp.spritesmith');
+    spritesmith = require('gulp.spritesmith'),
+    imagemin = require('gulp-imagemin'),
+    pngquant = require('imagemin-pngquant');
 
 
 gulp.task('jade', function(){
@@ -32,7 +34,7 @@ gulp.task('stylus', function() {
 	    .pipe(gulp.dest( './') );
 });
 
-gulp.task('stylint', function () {
+gulp.task('stylint', function() {
     gulp.src('./styl/*.styl')
         .pipe(stylint({
             rules: {
@@ -84,7 +86,7 @@ gulp.task('stylint', function () {
 });
 
 gulp.task('spritesmith', function() {
-    var spriteData = gulp.src('images/sprite/*.*').pipe(spritesmith({
+    var spriteData = gulp.src('./images/src/sprite/*.*').pipe(spritesmith({
         imgName: 'sprite.png',
         cssName: 'sprite.styl',
         cssFormat: 'stylus',
@@ -94,4 +96,14 @@ gulp.task('spritesmith', function() {
     spriteData.css.pipe(gulp.dest('./styl/helpers/')); // путь, куда сохраняем стили
 });
 
-gulp.task( 'default', ['jade', 'stylus', 'stylint', 'spritesmith'] );
+gulp.task('imagemin', function() {
+    gulp.src('./images/src/*.*')
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest('./images'));
+});
+
+gulp.task( 'default', ['jade', 'stylus', 'stylint', 'spritesmith', 'imagemin'] );
