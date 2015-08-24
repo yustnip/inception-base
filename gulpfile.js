@@ -92,7 +92,7 @@ gulp.task('spritesmith', function() {
         cssFormat: 'stylus',
         algorithm: 'binary-tree'
     }));
-    spriteData.img.pipe(gulp.dest('./images/')); // путь, куда сохраняем картинку
+    spriteData.img.pipe(gulp.dest('./images/src/')); // путь, куда сохраняем картинку
     spriteData.css.pipe(gulp.dest('./styl/helpers/')); // путь, куда сохраняем стили
 });
 
