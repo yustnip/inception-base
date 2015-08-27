@@ -89,8 +89,7 @@ gulp.task('spritesmith', function() {
     var spriteData = gulp.src('./images/src/sprite/*.*').pipe(spritesmith({
         imgName: 'sprite.png',
         cssName: 'sprite.styl',
-        cssFormat: 'stylus',
-        algorithm: 'binary-tree'
+        cssFormat: 'stylus'
     }));
     spriteData.img.pipe(gulp.dest('./images/src/')); // путь, куда сохраняем картинку
     spriteData.css.pipe(gulp.dest('./styl/helpers/')); // путь, куда сохраняем стили
