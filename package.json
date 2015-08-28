@@ -1,27 +1,28 @@
 {
-  "name": "inception-base",
-  "version": "0.0.0",
-  "description": "",
-  "main": "gulpfile.js",
-  "dependencies": {
-    "gulp": "*"
-  },
-  "devDependencies": {
-    "autoprefixer-core": "*",
-    "gulp": "*",
-    "gulp-imagemin": "*",
-    "gulp-jade": "*",
-    "gulp-jsbeautifier": "*",
-    "gulp-postcss": "*",
-    "gulp-rename": "*",
-    "gulp-stylint": "*",
-    "gulp-stylus": "*",
-    "gulp.spritesmith": "*",
-    "imagemin-pngquant": "*"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Niktia Yustovskiy",
-  "license": "ISC"
+    "name": "inception-base",
+    "version": "0.0.0",
+    "description": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yustnip/inception-base"
+    },
+    "main": "gulpfile.js",
+    "devDependencies": {
+        "autoprefixer-core": "*",
+        "gulp": "*",
+        "gulp-imagemin": "*",
+        "gulp-jade": "*",
+        "gulp-jsbeautifier": "*",
+        "gulp-postcss": "*",
+        "gulp-rename": "*",
+        "gulp-stylint": "*",
+        "gulp-stylus": "*",
+        "gulp.spritesmith": "*",
+        "imagemin-pngquant": "*"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Niktia Yustovskiy",
+    "license": "ISC"
 }
