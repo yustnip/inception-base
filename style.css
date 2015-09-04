@@ -1,25 +1,8 @@
 /*
 Theme Name: Inception Base
-Theme URI: http://yustovskiy.ru/
+Theme URI: https://github.com/yustnip/inception-base
 Description: Inception is a pure base theme.
 Author: Nikita Yustovskiy
-Author URI: http://yustovskiy.ru/
+Author URI: https://github.com/yustnip
 Version: 1.0
 */
-input {
-  display: -webkit-flex;
-  display: flex;
-  transition: 1s all;
-}
-input::-webkit-input-placeholder {
-  line-height: 2;
-}
-input::-moz-placeholder {
-  line-height: 2;
-}
-input:-ms-input-placeholder {
-  line-height: 2;
-}
-input::placeholder {
-  line-height: 2;
-}
