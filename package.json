@@ -8,12 +8,11 @@
     },
     "main": "gulpfile.js",
     "devDependencies": {
-        "autoprefixer-core": "*",
+        "gulp-autoprefixer": "*",
         "gulp": "*",
         "gulp-imagemin": "*",
         "gulp-jade": "*",
         "gulp-jsbeautifier": "*",
-        "gulp-postcss": "*",
         "gulp-rename": "*",
         "gulp-stylint": "*",
         "gulp-stylus": "*",

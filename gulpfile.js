@@ -3,8 +3,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     stylus = require('gulp-stylus'),
     prettify = require('gulp-jsbeautifier'),
-    postcss = require('gulp-postcss'),
-    autoprefixer = require('autoprefixer-core'),
+    autoprefixer = require('gulp-autoprefixer'),
     stylint = require('gulp-stylint'),
     spritesmith = require('gulp.spritesmith'),
     imagemin = require('gulp-imagemin'),
@@ -29,7 +28,7 @@ gulp.task('jade', function(){
 gulp.task('stylus', function() {
     gulp.src('./styl/*.styl')
     	.pipe(stylus())
-        .pipe(postcss([ autoprefixer({ browsers: [ 'last 10 versions', 'ie 9' ] }) ]))
+        .pipe(autoprefixer({ browsers: [ 'last 10 versions', 'ie 9' ] }))
 	    .on('error', console.log) // Выводим ошибки в консоль
 	    .pipe(gulp.dest( './') );
 });
