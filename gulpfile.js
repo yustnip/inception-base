@@ -106,3 +106,6 @@ gulp.task('imagemin', function() {
 
 gulp.task( 'default', ['jade', 'stylus', 'stylint', 'spritesmith', 'imagemin'] );
 //gulp.task( 'default', ['jade', 'stylus', 'stylint'] );
+
+gulp.watch('./jade/*.jade', ['jade']);
+gulp.watch('./styl/*.styl', ['stylus']);
