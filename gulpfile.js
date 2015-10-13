@@ -81,7 +81,8 @@ gulp.task('stylint', function() {
                     'font-family'
                 ]
             }
-        }));
+        }))
+	.pipe(stylint.reporter());
 });
 
 gulp.task('spritesmith', function() {
