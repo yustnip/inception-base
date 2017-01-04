@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    jade = require('gulp-jade'),
+    pug = require('gulp-pug'),
     rename = require('gulp-rename'),
     stylus = require('gulp-stylus'),
     prettify = require('gulp-jsbeautifier'),
@@ -10,19 +10,18 @@ var gulp = require('gulp'),
     pngquant = require('imagemin-pngquant');
 
 
-gulp.task('jade', function(){
-	gulp.src('./jade/*.jade')
-		.pipe(jade({ pretty: true }))
+gulp.task('pug', function() {
+    gulp.src('./pug/*.pug')
+        .pipe(pug({ pretty: true }))
         .pipe(prettify({
-            indent_size: 1,
-            indent_char: '\t',
-            indent_inner_html: true
+            indent_size: 4,
+            indent_char: ' '
         }))
-		.on('error', console.log) // Выводим ошибки в консоль
+        .on('error', function( err ) { console.error( err ) }) // Выводим ошибки в консоль
         .pipe(rename({ //Изменяем расширение на .php
             extname: '.php'
         }))
-		.pipe(gulp.dest('./'));
+        .pipe(gulp.dest('./'));
 });
 
 gulp.task('stylus', function() {
@@ -105,8 +104,8 @@ gulp.task('imagemin', function() {
         .pipe(gulp.dest('./images'));
 });
 
-gulp.task( 'default', ['jade', 'stylus', 'stylint', 'spritesmith', 'imagemin'] );
-//gulp.task( 'default', ['jade', 'stylus', 'stylint'] );
+gulp.task( 'default', ['pug', 'stylus', 'stylint', 'spritesmith', 'imagemin'] );
+gulp.task( 'dev-light', ['pug', 'stylus', 'stylint'] );
 
-gulp.watch('./jade/*.jade', ['jade']);
+gulp.watch('./pug/*.pug', ['pug']);
 gulp.watch('./styl/*.styl', ['stylus', 'stylint']);
