@@ -1,6 +1,8 @@
 # Inception Base
 **Boilerplate for quick start a WordPress project**
 
+Technologies: [Pug](https://pugjs.org/) with [bemto](https://github.com/kizu/bemto), [cssnext](http://cssnext.io/)(autoprefixer is included), [spritesmith](https://github.com/Ensighten/spritesmith), [imagemin](https://github.com/imagemin/imagemin).
+
 ## Setup
 1. Clone the repo to `themes` folder of WordPress:
     ```sh
