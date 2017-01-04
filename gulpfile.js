@@ -11,7 +11,7 @@ var gulp = require('gulp'),
     
 
 gulp.task('pug', function() {
-    gulp.src('./pug/*.pug')
+    return gulp.src('./pug/*.pug')
         .pipe(pug({ pretty: true }))
         .pipe(prettify({
             indent_size: 4,
@@ -31,7 +31,7 @@ gulp.task('styles', function() {
         })
     ];
     
-    gulp.src(['./styles/style.css', './styles/*.css'])
+    return gulp.src(['./styles/style.css', './styles/*.css'])
         .pipe(postcss(processors))
         .pipe(concat('style.css'))
         .pipe(gulp.dest('./'));
@@ -47,7 +47,7 @@ gulp.task('spritesmith', function() {
 });
 
 gulp.task('imagemin', function() {
-    gulp.src('./images/src/*.*')
+    return gulp.src('./images/src/*.*')
         .pipe(imagemin({
             progressive: true,
             use: [pngquant()]
@@ -55,8 +55,10 @@ gulp.task('imagemin', function() {
         .pipe(gulp.dest('./images'));
 });
 
-gulp.task( 'default', ['pug', 'styles', 'spritesmith', 'imagemin'] );
-gulp.task( 'dev-light', ['pug', 'styles'] );
+gulp.task( 'watcher', function() {
+    gulp.watch('./pug/*.pug', ['pug']);
+    gulp.watch('./styles/*.css', ['styles']);
+} )
 
-// gulp.watch('./pug/*.pug', ['pug']);
-// gulp.watch('./styles/*.css', ['styles']);
+gulp.task( 'default', ['pug', 'styles', 'spritesmith', 'imagemin', 'watcher'] );
+gulp.task( 'dev-light', ['pug', 'styles'] );
