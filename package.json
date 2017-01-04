@@ -1,6 +1,6 @@
 {
   "name": "inception-base",
-  "version": "0.0.0",
+  "version": "1.1.0",
   "description": "",
   "repository": {
     "type": "git",
@@ -8,16 +8,17 @@
   },
   "main": "gulpfile.js",
   "devDependencies": {
+    "autoprefixer": "^6.6.1",
     "gulp": "*",
-    "gulp-autoprefixer": "*",
+    "gulp-concat": "^2.6.1",
     "gulp-imagemin": "*",
     "gulp-jsbeautifier": "*",
+    "gulp-postcss": "^6.2.0",
     "gulp-pug": "^3.2.0",
     "gulp-rename": "*",
-    "gulp-stylint": "*",
-    "gulp-stylus": "*",
     "gulp.spritesmith": "*",
-    "imagemin-pngquant": "*"
+    "imagemin-pngquant": "*",
+    "postcss-cssnext": "^2.9.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

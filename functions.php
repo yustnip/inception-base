@@ -51,7 +51,7 @@ add_theme_support( 'html5', array( 'search-form' ) );
 
 // Connect CSS and JS
 function inception_assets() {
-    wp_enqueue_style( 'normalize', get_stylesheet_directory_uri() . '/css/normalize.css' );
+    wp_enqueue_style( 'normalize', get_stylesheet_directory_uri() . '/styles/libs/normalize.css' );
     wp_enqueue_style( 'style', get_stylesheet_uri(), array( 'normalize' ) );
 
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), NULL, true );

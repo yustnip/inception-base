@@ -4,8 +4,13 @@ Theme URI: https://github.com/yustnip/inception-base
 Description: Inception is a pure base theme.
 Author: Nikita Yustovskiy
 Author URI: https://github.com/yustnip
-Version: 1.0
+Version: 1.1.0
 */
 
-@import 'helpers/sprite'
-@import 'helpers/mixins'
+:root {
+    --mainColor: #000;
+}
+
+div {
+    color: var(--mainColor);
+}
