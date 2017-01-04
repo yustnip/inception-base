@@ -40,18 +40,16 @@ gulp.task('styles', function() {
 gulp.task('spritesmith', function() {
     var spriteData = gulp.src('./images/src/sprite/*.*').pipe(spritesmith({
         imgName: 'sprite.png',
-        cssName: 'sprite.styl',
-        cssFormat: 'stylus'
+        cssName: 'sprite.css'
     }));
-    spriteData.img.pipe(gulp.dest('./images/src/')); // путь, куда сохраняем картинку
-    spriteData.css.pipe(gulp.dest('./styl/helpers/')); // путь, куда сохраняем стили
+    spriteData.img.pipe(gulp.dest('./images/src/'));
+    spriteData.css.pipe(gulp.dest('./styles/generated/'));
 });
 
 gulp.task('imagemin', function() {
     gulp.src('./images/src/*.*')
         .pipe(imagemin({
             progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         }))
         .pipe(gulp.dest('./images'));
