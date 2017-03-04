@@ -1,6 +1,8 @@
 # Inception Base
 **Boilerplate for quick start a WordPress project**
 
+Technologies: [Pug](https://pugjs.org/) with [bemto](https://github.com/kizu/bemto), [cssnext](http://cssnext.io/)(autoprefixer is included), [spritesmith](https://github.com/Ensighten/spritesmith), [imagemin](https://github.com/imagemin/imagemin), [Bootstrap](http://getbootstrap.com/).
+
 ## Setup
 1. Clone the repo to `themes` folder of WordPress:
     ```sh
@@ -11,9 +13,10 @@
     ```sh
     npm i
     ```
-    
+
 ## Usage
 Use the following commands to run the build:
 
-* `gulp` - for the default task with Pug, cssnext, spritesmith, imagemin and watchers for .pug and .css source files.
-* `gulp dev-light` - for building only from .pug and .css files, without watchers.
+* `gulp` - for the default task with Pug, cssnext, spritesmith, imagemin and watchers for .pug and .css source files;
+* `gulp dev:light` - for building only from .pug and .css files, without watchers.
+

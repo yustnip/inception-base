@@ -1,7 +1,7 @@
 {
   "name": "inception-base",
-  "version": "1.1.0",
-  "description": "",
+  "version": "1.2.0",
+  "description": "Boilerplate for quick start a WordPress project",
   "repository": {
     "type": "git",
     "url": "https://github.com/yustnip/inception-base"
@@ -9,15 +9,15 @@
   "main": "gulpfile.js",
   "devDependencies": {
     "autoprefixer": "^6.6.1",
-    "gulp": "*",
+    "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "*",
-    "gulp-jsbeautifier": "*",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-jsbeautifier": "^2.0.4",
     "gulp-postcss": "^6.2.0",
     "gulp-pug": "^3.2.0",
-    "gulp-rename": "*",
-    "gulp.spritesmith": "*",
-    "imagemin-pngquant": "*",
+    "gulp-rename": "^1.2.2",
+    "gulp.spritesmith": "^6.3.0",
+    "imagemin-pngquant": "^5.0.0",
     "postcss-cssnext": "^2.9.0"
   },
   "scripts": {
