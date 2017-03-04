@@ -19,4 +19,3 @@ Use the following commands to run the build:
 
 * `gulp` - for the default task with Pug, cssnext, spritesmith, imagemin and watchers for .pug and .css source files;
 * `gulp dev:light` - for building only from .pug and .css files, without watchers.
-
