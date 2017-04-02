@@ -7,7 +7,8 @@ var gulp = require( 'gulp' ),
     pngquant = require( 'imagemin-pngquant' ),
     postcss = require( 'gulp-postcss' ),
     cssnext = require( 'postcss-cssnext' ),
-    concat = require( 'gulp-concat' )
+    concat = require( 'gulp-concat' ),
+    runSequence = require('run-sequence')
 
 gulp.task( 'pug', function() {
     return gulp.src( './pug/*.pug' )
@@ -30,7 +31,11 @@ gulp.task( 'styles', function() {
         } )
     ]
 
-    return gulp.src( [ './styles/*.css', './styles/blocks/*.css' ] )
+    return gulp.src( [
+        './styles/*.css',
+        './styles/blocks/*.css',
+        './styles/generated/*.css'
+        ] )
         .pipe( postcss( processors ) )
         .pipe( concat( 'style.css' ) )
         .pipe( gulp.dest( './' ) )
@@ -59,5 +64,7 @@ gulp.task( 'watcher', function() {
     gulp.watch( [ './styles/*.css', './styles/blocks/*.css' ], [ 'styles' ] )
 } )
 
-gulp.task( 'default', [ 'pug', 'styles', 'spritesmith', 'imagemin', 'watcher' ] )
+gulp.task( 'default', function() {
+    runSequence( 'pug', 'spritesmith', 'imagemin', 'styles', 'watcher' )
+} )
 gulp.task( 'dev:light', [ 'pug', 'styles'] )

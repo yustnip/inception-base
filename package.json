@@ -1,6 +1,6 @@
 {
   "name": "inception-base",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Boilerplate for quick start a WordPress project",
   "repository": {
     "type": "git",
@@ -18,7 +18,8 @@
     "gulp-rename": "^1.2.2",
     "gulp.spritesmith": "^6.3.0",
     "imagemin-pngquant": "^5.0.0",
-    "postcss-cssnext": "^2.9.0"
+    "postcss-cssnext": "^2.9.0",
+    "run-sequence": "^1.2.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
