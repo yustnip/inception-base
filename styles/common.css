@@ -7,10 +7,7 @@ Author URI: https://github.com/yustnip
 Version: 1.2.0
 */
 
-:root {
-    --fontFamily: sans-serif;
-    --fontSize: 10px;
-}
+@import './variables';
 
 html {
     font-size: var( --fontSize );

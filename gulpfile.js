@@ -8,7 +8,8 @@ var gulp = require( 'gulp' ),
     postcss = require( 'gulp-postcss' ),
     cssnext = require( 'postcss-cssnext' ),
     concat = require( 'gulp-concat' ),
-    runSequence = require('run-sequence')
+    runSequence = require( 'run-sequence' ),
+    atImport = require( 'postcss-import' )
 
 gulp.task( 'pug', function() {
     return gulp.src( './pug/*.pug' )
@@ -26,6 +27,7 @@ gulp.task( 'pug', function() {
 
 gulp.task( 'styles', function() {
     var processors = [
+        atImport(),
         cssnext( {
             browsers: 'last 3 versions'
         } )
