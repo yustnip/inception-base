@@ -1,2 +1,8 @@
 node_modules
 styles/generated
+
+*.php
+!footer.php
+!functions.php
+!header.php
+!index.php
