@@ -17,7 +17,6 @@
     "gulp-pug": "^3.2.0",
     "gulp-rename": "^1.2.2",
     "gulp.spritesmith": "^6.3.0",
-    "imagemin-pngquant": "^5.0.0",
     "postcss-cssnext": "^2.9.0",
     "postcss-import": "^9.1.0",
     "run-sequence": "^1.2.2"

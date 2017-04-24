@@ -4,7 +4,6 @@ var gulp = require( 'gulp' ),
     prettify = require( 'gulp-jsbeautifier' ),
     spritesmith = require( 'gulp.spritesmith' ),
     imagemin = require( 'gulp-imagemin' ),
-    pngquant = require( 'imagemin-pngquant' ),
     postcss = require( 'gulp-postcss' ),
     cssnext = require( 'postcss-cssnext' ),
     concat = require( 'gulp-concat' ),
@@ -44,7 +43,7 @@ gulp.task( 'styles', function() {
 } )
 
 gulp.task( 'spritesmith', function() {
-    var spriteData = gulp.src( './images/src/sprite/*.*' ).pipe( spritesmith( {
+    var spriteData = gulp.src( './images/src/sprite/*.png' ).pipe( spritesmith( {
         imgName: 'sprite.png',
         imgPath: 'images/sprite.png',
         cssName: 'sprite.css'
@@ -54,11 +53,12 @@ gulp.task( 'spritesmith', function() {
 } )
 
 gulp.task( 'imagemin', function() {
-    return gulp.src( './images/src/*.*' )
-        .pipe( imagemin( {
-            progressive: true,
-            use: [ pngquant() ]
-        } ) )
+    return gulp.src( './images/src/*.{gif,jpeg,jpg,png}' )
+        .pipe( imagemin( [
+            imagemin.gifsicle( { interlaced: true } ),
+	        imagemin.jpegtran( { progressive: true } ),
+	        imagemin.optipng( { optimizationLevel: 5 } )
+         ] ) )
         .pipe( gulp.dest('./images') )
 } )
 
@@ -70,4 +70,7 @@ gulp.task( 'watcher', function() {
 gulp.task( 'default', function() {
     runSequence( 'pug', 'spritesmith', 'imagemin', 'styles', 'watcher' )
 } )
-gulp.task( 'dev:light', [ 'pug', 'styles'] )
+
+gulp.task( 'prod', function() {
+    runSequence( 'pug', 'spritesmith', 'imagemin', 'styles' )
+} )

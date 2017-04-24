@@ -1,5 +1,7 @@
 node_modules
 styles/generated
+images/*
+!images/src/
 
 *.php
 !footer.php
