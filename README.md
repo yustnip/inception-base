@@ -23,5 +23,5 @@ Technologies: [Pug](https://pugjs.org/) with [bemto](https://github.com/kizu/bem
 ## Usage
 Use the following commands to run the build:
 
-* `gulp` - for the default task with Pug, cssnext, spritesmith, imagemin and watchers for .pug and .css source files;
-* `gulp prod` - the default task without watchers.
+* `yarn start` or `npm start` - for the default task with Pug, cssnext, spritesmith, imagemin and watchers for .pug and .css source files;
+* `yarn prod` or `npm run prod` - the default task without watchers.
