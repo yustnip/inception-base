@@ -1,26 +1,16 @@
 var gulp = require( 'gulp' ),
-    pug = require( 'gulp-pug' ),
-    rename = require( 'gulp-rename' ),
-    prettify = require( 'gulp-jsbeautifier' ),
     spritesmith = require( 'gulp.spritesmith' ),
     imagemin = require( 'gulp-imagemin' ),
     postcss = require( 'gulp-postcss' ),
     cssnext = require( 'postcss-cssnext' ),
     concat = require( 'gulp-concat' ),
     runSequence = require( 'run-sequence' ),
-    atImport = require( 'postcss-import' )
+    atImport = require( 'postcss-import' ),
+    bemClasses = require( 'gulp-bem-classes' )
 
-gulp.task( 'pug', function() {
-    return gulp.src( './pug/*.pug' )
-        .pipe( pug() )
-        .pipe( prettify( {
-            indent_size: 4,
-            indent_char: ' '
-        } ) )
-        .on( 'error', function( err ) { console.error( err ) } )
-        .pipe( rename( {
-            extname: '.php'
-        } ) )
+gulp.task( 'templates', function() {
+    return gulp.src( './templates/*.php' )
+        .pipe( bemClasses() )
         .pipe( gulp.dest('./') )
 } )
 
@@ -63,14 +53,14 @@ gulp.task( 'imagemin', function() {
 } )
 
 gulp.task( 'watcher', function() {
-    gulp.watch( './pug/*.pug', [ 'pug' ] )
+    gulp.watch( './templates/*.php', [ 'templates' ] )
     gulp.watch( [ './styles/*.css', './styles/blocks/*.css' ], [ 'styles' ] )
 } )
 
 gulp.task( 'default', function() {
-    runSequence( 'pug', 'spritesmith', 'imagemin', 'styles', 'watcher' )
+    runSequence( 'templates', 'spritesmith', 'imagemin', 'styles', 'watcher' )
 } )
 
 gulp.task( 'prod', function() {
-    runSequence( 'pug', 'spritesmith', 'imagemin', 'styles' )
+    runSequence( 'templates', 'spritesmith', 'imagemin', 'styles' )
 } )

@@ -10,12 +10,10 @@
   "devDependencies": {
     "autoprefixer": "^6.6.1",
     "gulp": "^3.9.1",
+    "gulp-bem-classes": "^0.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^3.1.1",
-    "gulp-jsbeautifier": "^2.0.4",
     "gulp-postcss": "^6.2.0",
-    "gulp-pug": "^3.2.0",
-    "gulp-rename": "^1.2.2",
     "gulp.spritesmith": "^6.3.0",
     "postcss-cssnext": "^2.9.0",
     "postcss-import": "^9.1.0",
