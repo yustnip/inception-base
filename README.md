@@ -1,7 +1,7 @@
 # Inception Base
 **Boilerplate for quick start a WordPress project**
 
-Technologies: [b_](https://github.com/azproduction/b_), [cssnext](http://cssnext.io/)(autoprefixer is included), [spritesmith](https://github.com/Ensighten/spritesmith), [imagemin](https://github.com/imagemin/imagemin), [Bootstrap](http://getbootstrap.com/).
+Technologies: [b_](https://github.com/azproduction/b_), [Sass](http://sass-lang.com/) and [autoprefixer](https://github.com/postcss/autoprefixer), [spritesmith](https://github.com/Ensighten/spritesmith), [imagemin](https://github.com/imagemin/imagemin), [Bootstrap](http://getbootstrap.com/).
 
 ## Setup
 1. Clone the repo to `themes` folder of WordPress:

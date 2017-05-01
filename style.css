@@ -6,8 +6,15 @@ Author: Nikita Yustovskiy
 Author URI: https://github.com/yustnip
 Version: 1.2.0
 */
-
 html {
-    font-size: 10px;
+  font-family: sans-serif;
+  font-size: 10px;
 }
 
+.loop-error {
+  font-family: sans-serif;
+}
+
+.loop-error__message {
+  font-size: 10px;
+}
