@@ -7,7 +7,7 @@
             <?php the_content(); ?>
             <?php endwhile; else : ?>
             <div class="loop-error">
-                <p class="loop-error__message">
+                <p class="loop-error__message example">
                     <?php _e('Sorry, no posts matched your criteria.'); ?>
                 </p>
             </div>

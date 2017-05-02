@@ -7,7 +7,7 @@
             <?php the_content(); ?>
             <?php endwhile; else : ?>
             <div bemClass="b( 'loop-error' )">
-                <p bemClass="b( 'loop-error', 'message' )">
+                <p bemClass="b( 'loop-error' )( 'message' ).mix( 'example' )">
                     <?php _e('Sorry, no posts matched your criteria.'); ?>
                 </p>
             </div>
