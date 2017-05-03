@@ -1,5 +1,5 @@
 node_modules
-styles/generated
+generated
 images/*
 !images/src/
 npm-debug.log

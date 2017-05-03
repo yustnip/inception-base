@@ -7,12 +7,24 @@ var gulp = require( 'gulp' ),
     bemClasses = require( 'gulp-bem-classes' ),
     sass = require( 'gulp-sass' ),
     sassGlob = require( 'gulp-sass-glob' ),
-    autoprefixer = require( 'autoprefixer' )
+    autoprefixer = require( 'autoprefixer' ),
+    fileInclude = require( 'gulp-file-include' )
+
+gulp.task( 'blocks', function() {
+    return gulp.src( './templates/blocks/*.php' )
+        .pipe( bemClasses( { blockPerFile: true } ) )
+        .pipe( gulp.dest( './templates/blocks/generated' ) )
+} )
 
 gulp.task( 'templates', function() {
     return gulp.src( './templates/*.php' )
+        .pipe( fileInclude( {
+            prefix: '@@',
+            basepath: './templates/blocks/generated',
+            indent: true
+        } ) )
         .pipe( bemClasses() )
-        .pipe( gulp.dest('./') )
+        .pipe( gulp.dest( './' ) )
 } )
 
 gulp.task( 'styles', function() {
@@ -45,14 +57,16 @@ gulp.task( 'imagemin', function() {
 } )
 
 gulp.task( 'watcher', function() {
-    gulp.watch( './templates/*.php', [ 'templates' ] )
+    gulp.watch( './templates/**/*.php', function() {
+        runSequence( 'blocks', 'templates' )
+    } )
     gulp.watch( [ './styles/*.scss', './styles/blocks/*.scss' ], [ 'styles' ] )
 } )
 
 gulp.task( 'default', function() {
-    runSequence( 'templates', 'spritesmith', 'imagemin', 'styles', 'watcher' )
+    runSequence( 'blocks', 'templates', 'spritesmith', 'imagemin', 'styles', 'watcher' )
 } )
 
 gulp.task( 'prod', function() {
-    runSequence( 'templates', 'spritesmith', 'imagemin', 'styles' )
+    runSequence( 'blocks', 'templates', 'spritesmith', 'imagemin', 'styles' )
 } )
