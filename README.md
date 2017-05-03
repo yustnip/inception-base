@@ -26,10 +26,10 @@ Technologies: [bem-cn](https://github.com/albburtsev/bem-cn), [Sass](http://sass
 For creating BEM class names you can use the following syntax:
 
 ```html
-<div bemClass="b('block')">
-    <div bemClass="b('block')('element')">Element</div>
-    <div bemClass="b('block')('element').mix('legacy')">Legacy element</div>
-    <div bemClass="b('block')('element', {size: 'small'})">Small element</div>
+<div bClass="b('block')">
+    <div bClass="b('block')('element')">Element</div>
+    <div bClass="b('block')('element').mix('legacy')">Legacy element</div>
+    <div bClass="b('block')('element', {size: 'small'})">Small element</div>
 </div>
 ```
 
