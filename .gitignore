@@ -9,4 +9,4 @@ npm-debug.log
 !functions.php
 !header.php
 !index.php
-!templates/blocks/*
+!templates/*
