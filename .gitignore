@@ -10,3 +10,4 @@ npm-debug.log
 !header.php
 !index.php
 !templates/*
+!templates/blocks/*
