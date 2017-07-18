@@ -63,9 +63,10 @@ add_theme_support( 'html5', array( 'search-form' ) );
 
 // Connect CSS and JS
 function inception_assets() {
-    wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/styles/libs/bootstrap/css/bootstrap.min.css' );
-    wp_enqueue_style( 'bootstrap-theme', get_stylesheet_directory_uri() . '/styles/libs/bootstrap/css/bootstrap-theme.min.css', array( 'bootstrap' ) );
-    wp_enqueue_style( 'style', get_stylesheet_uri(), array( 'bootstrap', 'bootstrap-theme' ) );
+    wp_enqueue_style( 'normalize', get_stylesheet_directory_uri() . '/styles/libs/normalize.css' );
+    wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/styles/libs/bootstrap/css/bootstrap.min.css', array( 'normalize' ) );
+    wp_enqueue_style( 'bootstrap-theme', get_stylesheet_directory_uri() . '/styles/libs/bootstrap/css/bootstrap-theme.min.css', array( 'normalize', 'bootstrap' ) );
+    wp_enqueue_style( 'style', get_stylesheet_uri(), array( 'normalize', 'bootstrap', 'bootstrap-theme' ) );
 
     wp_enqueue_script( 'bootstrap', get_stylesheet_directory_uri() . '/styles/libs/bootstrap/js/bootstrap.min.js', array( 'jquery' ), NULL, true );
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery', 'bootstrap' ), NULL, true );
