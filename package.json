@@ -1,6 +1,6 @@
 {
   "name": "inception-base",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Boilerplate for quick start a WordPress project",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "devDependencies": {
     "autoprefixer": "^6.7.7",
     "gulp": "^3.9.1",
-    "gulp-bem-classes": "^0.3.1",
+    "gulp-bem-classes": "^0.3.2",
     "gulp-concat": "^2.6.1",
     "gulp-file-include": "^1.1.0",
     "gulp-imagemin": "^3.1.1",

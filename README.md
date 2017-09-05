@@ -11,12 +11,6 @@ Technologies: [bem-cn](https://github.com/albburtsev/bem-cn), [Sass](http://sass
 
 2. Go to the folder `inception-base` and install:
   ```sh
-  yarn
-  ```
-
-  or
-
-  ```sh
   npm i
   ```
 
@@ -78,5 +72,5 @@ More info about the bem-cn syntax you can find in the package [repo](https://git
 ### Commands
 Use the following commands to run the build:
 
-* `yarn start` or `npm start` - for the default task with Pug, cssnext, spritesmith, imagemin and watchers for .pug and .css source files;
-* `yarn prod` or `npm run prod` - the default task without watchers.
+* `npm start` - for the default task with Pug, cssnext, spritesmith, imagemin and watchers for .pug and .css source files;
+* `npm run prod` - the default task without watchers.
