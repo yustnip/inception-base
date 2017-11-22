@@ -6,10 +6,26 @@ var gulp = require('gulp'),
   runSequence = require('run-sequence'),
   sass = require('gulp-sass'),
   sassGlob = require('gulp-sass-glob'),
-  autoprefixer = require('autoprefixer')
+  autoprefixer = require('autoprefixer'),
+  posthtml = require('gulp-posthtml'),
+  posthtmlBem = require('posthtml-bem')
 
 gulp.task('templates', function() {
-  return gulp.src('./templates/*.php').pipe(gulp.dest('./'))
+  var bemConfig = {
+    elemPrefix: '__',
+    modPrefix: '_',
+    modDlmtr: '--'
+  }
+  var plugins = [posthtmlBem(bemConfig)]
+  var options = {
+    directives: [
+      { name: '?php', start: '<', end: '>' }
+    ]
+  }
+
+  return gulp.src('./templates/*.php')
+    .pipe(posthtml(plugins, options))
+    .pipe(gulp.dest('./'))
 })
 
 gulp.task('styles', function() {
