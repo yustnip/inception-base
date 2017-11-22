@@ -7,10 +7,14 @@
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
       <?php the_content(); ?>
       <?php endwhile; else : ?>
-      @@include('loop-error.php')
+      <div class="loop-error">
+        <p class="loop-error__message example">
+          <?php _e('Sorry, no posts matched your criteria.'); ?>
+        </p>
+      </div>
       <?php endif; ?>
 
-      <p bClass="b('theme-name')">Inception Base</p>
+      <p class="theme-name">Inception Base</p>
     </div>
   </div>
 </div>
