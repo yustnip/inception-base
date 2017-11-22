@@ -1,4 +1,18 @@
+@import 'node_modules/jeet/jeet';
+
 html {
     font-family: $fontFamily;
     font-size: $fontSize;
+}
+
+.container {
+  @include center();
+}
+
+.loop-error {
+  font-family: $fontFamily;
+
+  &__message {
+    font-size: $fontSize;
+  }
 }
