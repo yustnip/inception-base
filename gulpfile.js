@@ -32,7 +32,7 @@ gulp.task('styles', function() {
   return gulp.src('./styles/root.scss')
   .pipe(sassGlob())
   .pipe(sass({ outputStyle: 'expanded' }))
-  .pipe(postcss([autoprefixer()]))
+  .pipe(postcss([autoprefixer({ browsers: ['ie 11']  })]))
   .pipe(concat('style.css'))
   .pipe(gulp.dest('./'))
 })

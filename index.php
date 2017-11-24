@@ -10,7 +10,6 @@
     </p>
   </div>
   <?php endif; ?>
-
   <p class="theme-name">Inception Base</p>
 </div>
 
