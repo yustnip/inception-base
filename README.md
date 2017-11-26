@@ -1,7 +1,7 @@
 # Inception Base
 **Boilerplate for quick start a WordPress project**
 
-Technologies: [Sass](http://sass-lang.com/) and [autoprefixer](https://github.com/postcss/autoprefixer), [spritesmith](https://github.com/Ensighten/spritesmith), [imagemin](https://github.com/imagemin/imagemin), [Jeet](http://jeet.gs/), [slick](http://kenwheeler.github.io/slick/).
+Technologies: [PostHTML](https://github.com/posthtml/posthtml) with [PostHTML-bem](https://github.com/rajdee/posthtml-bem), [Sass/SCSS](http://sass-lang.com/) and [autoprefixer](https://github.com/postcss/autoprefixer), [spritesmith](https://github.com/Ensighten/spritesmith), [imagemin](https://github.com/imagemin/imagemin), [Jeet](http://jeet.gs/), [slick](http://kenwheeler.github.io/slick/).
 
 ## Setup
 1. Clone the repo to `themes` folder of WordPress:
@@ -19,7 +19,5 @@ Technologies: [Sass](http://sass-lang.com/) and [autoprefixer](https://github.co
 ### Commands
 Use the following commands to run the build:
 
-* `npm start` - for the default task with Pug, cssnext, spritesmith, imagemin and watchers for .pug and .css source files;
+* `npm start` - for the default task with PostHTML, Sass, spritesmith, imagemin and watchers for .php and .scss source files;
 * `npm run prod` - the default task without watchers.
-
-PostHTML is coming...
