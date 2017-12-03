@@ -8,7 +8,8 @@ var gulp = require('gulp'),
   sassGlob = require('gulp-sass-glob'),
   autoprefixer = require('autoprefixer'),
   posthtml = require('gulp-posthtml'),
-  posthtmlBem = require('posthtml-bem')
+  posthtmlBem = require('posthtml-bem'),
+  rename = require('gulp-rename')
 
 gulp.task('templates', function() {
   var bemConfig = {
@@ -23,8 +24,9 @@ gulp.task('templates', function() {
     ]
   }
 
-  return gulp.src('./templates/*.php')
+  return gulp.src('./templates/**/*.php')
     .pipe(posthtml(plugins, options))
+    .pipe(rename({ dirname: '' }))
     .pipe(gulp.dest('./'))
 })
 
