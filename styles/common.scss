@@ -1,8 +1,15 @@
 @import 'node_modules/jeet/jeet';
 
 html {
-    font-family: $fontFamily;
-    font-size: $fontSize;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 .container {
