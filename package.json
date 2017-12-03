@@ -24,7 +24,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
-    "prod": "gulp prod"
+    "build": "gulp build"
   },
   "author": "Niktia Yustovskiy",
   "license": "MIT",

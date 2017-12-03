@@ -63,9 +63,9 @@ gulp.task('watcher', function() {
 })
 
 gulp.task('default', function() {
-  runSequence('templates', 'spritesmith', 'imagemin', 'styles', 'watcher')
+  runSequence('templates', 'styles', 'watcher')
 })
 
-gulp.task('prod', function() {
+gulp.task('build', function() {
   runSequence('templates', 'spritesmith', 'imagemin', 'styles')
 })
