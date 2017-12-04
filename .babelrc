@@ -1,5 +1,9 @@
 {
-  "presets": ["env", "react"],
+  "presets": [["env", {
+    "targets": {
+      "browsers": ["last 2 major versions", "not ie < 11"]
+    }
+  }], "react"],
   "plugins": [
     "transform-object-rest-spread",
     "transform-class-properties"
