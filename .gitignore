@@ -1,7 +1,7 @@
 node_modules
 generated
-images/*
-!images/src/
+images
+!src/images
 npm-debug.log
 
 *.php
@@ -9,5 +9,4 @@ npm-debug.log
 !functions.php
 !header.php
 !index.php
-!templates/*
-!templates/blocks/*
+!src/templates

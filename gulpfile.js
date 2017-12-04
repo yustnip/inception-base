@@ -9,7 +9,8 @@ var gulp = require('gulp'),
   autoprefixer = require('autoprefixer'),
   posthtml = require('gulp-posthtml'),
   posthtmlBem = require('posthtml-bem'),
-  rename = require('gulp-rename')
+  rename = require('gulp-rename'),
+  buffer = require('vinyl-buffer')
 
 gulp.task('templates', function() {
   var bemConfig = {
@@ -24,14 +25,14 @@ gulp.task('templates', function() {
     ]
   }
 
-  return gulp.src('./templates/**/*.php')
+  return gulp.src('./src/templates/**/*.php')
     .pipe(posthtml(plugins, options))
     .pipe(rename({ dirname: '' }))
     .pipe(gulp.dest('./'))
 })
 
 gulp.task('styles', function() {
-  return gulp.src('./styles/root.scss')
+  return gulp.src('./src/styles/root.scss')
   .pipe(sassGlob())
   .pipe(sass({ outputStyle: 'expanded' }))
   .pipe(postcss([autoprefixer({ browsers: ['ie 11']  })]))
@@ -39,18 +40,28 @@ gulp.task('styles', function() {
   .pipe(gulp.dest('./'))
 })
 
+gulp.task('scripts', function() {
+  return gulp.src('./src/scripts/scripts.js')
+    .pipe(rename({ dirname: '' }))
+    .pipe(gulp.dest('./'))
+})
+
 gulp.task('spritesmith', function() {
-  var spriteData = gulp.src('./images/src/sprite/*.png').pipe(spritesmith({
+  var spriteData = gulp.src('./src/images/sprite/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
     imgPath: 'images/sprite.png',
     cssName: 'sprite.scss'
   }))
-  spriteData.img.pipe(gulp.dest('./images/src/'))
-  spriteData.css.pipe(gulp.dest('./styles/generated/'))
+  spriteData.img
+    .pipe(buffer())
+    .pipe(imagemin([imagemin.optipng({ optimizationLevel: 5 })]))
+    .pipe(gulp.dest('./images'))
+
+  spriteData.css.pipe(gulp.dest('./src/styles/generated'))
 })
 
 gulp.task('imagemin', function() {
-  return gulp.src('./images/src/*.{gif,jpeg,jpg,png}')
+  return gulp.src('./src/images/*.{gif,jpeg,jpg,png}')
     .pipe(imagemin([
       imagemin.gifsicle({ interlaced: true }),
       imagemin.jpegtran({ progressive: true }),
@@ -60,14 +71,15 @@ gulp.task('imagemin', function() {
 })
 
 gulp.task('watcher', function() {
-  gulp.watch('./templates/**/*.php', ['templates'])
-  gulp.watch(['./styles/*.scss', './styles/blocks/*.scss'], ['styles'])
+  gulp.watch('./src/templates/**/*.php', ['templates'])
+  gulp.watch(['./src/styles/*.scss', './src/styles/blocks/*.scss'], ['styles'])
+  gulp.watch('./src/scripts/scripts.js', ['scripts'])
 })
 
 gulp.task('default', function() {
-  runSequence('templates', 'styles', 'watcher')
+  runSequence('templates', 'styles', 'scripts', 'watcher')
 })
 
 gulp.task('build', function() {
-  runSequence('templates', 'spritesmith', 'imagemin', 'styles')
+  runSequence('templates', 'scripts', 'spritesmith', 'imagemin', 'styles')
 })

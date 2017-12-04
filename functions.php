@@ -69,7 +69,7 @@ function inception_assets() {
     wp_enqueue_style( 'style', get_stylesheet_uri(), array( 'normalize', 'slick', 'slick-theme' ) );
 
     wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/libs/slick/slick.min.js', array( 'jquery' ), NULL, true );
-    wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery', 'slick' ), NULL, true );
+    wp_enqueue_script( 'scripts', get_template_directory_uri() . '/scripts.js', array( 'jquery', 'slick' ), NULL, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'inception_assets' );
