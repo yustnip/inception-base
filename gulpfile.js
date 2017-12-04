@@ -11,7 +11,8 @@ var gulp = require('gulp'),
   posthtmlBem = require('posthtml-bem'),
   rename = require('gulp-rename'),
   buffer = require('vinyl-buffer'),
-  webpack = require('webpack-stream')
+  webpack = require('webpack-stream'),
+  del = require('del')
 
 gulp.task('templates', function() {
   var bemConfig = {
@@ -41,10 +42,22 @@ gulp.task('styles', function() {
   .pipe(gulp.dest('./'))
 })
 
-gulp.task('scripts', function() {
+gulp.task('scripts-dev', function() {
   return gulp.src('./src/scripts/index.js')
-    .pipe(webpack( require('./webpack.config.js') ))
+    .pipe(webpack( require('./webpack/webpack-dev.config.js') ))
     .pipe(gulp.dest('./'))
+})
+
+gulp.task('scripts-prod', function() {
+  return gulp.src('./src/scripts/index.js')
+    .pipe(webpack( require('./webpack/webpack-prod.config.js') ))
+    .pipe(gulp.dest('./'))
+})
+
+gulp.task('clean', function() {
+  return del([
+    './scripts.js.map'
+  ])
 })
 
 gulp.task('spritesmith', function() {
@@ -78,9 +91,9 @@ gulp.task('watcher', function() {
 })
 
 gulp.task('default', function() {
-  runSequence('templates', 'styles', 'scripts', 'watcher')
+  runSequence('templates', 'styles', 'scripts-dev', 'watcher')
 })
 
-gulp.task('build', function() {
-  runSequence('templates', 'scripts', 'spritesmith', 'imagemin', 'styles')
+gulp.task('prod', function() {
+  runSequence('clean', 'templates', 'scripts-prod', 'spritesmith', 'imagemin', 'styles')
 })

@@ -3,6 +3,8 @@ generated
 images
 !src/images
 npm-debug.log
+scripts.js
+scripts.js.map
 
 *.php
 !footer.php
