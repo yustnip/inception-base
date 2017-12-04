@@ -10,7 +10,8 @@ var gulp = require('gulp'),
   posthtml = require('gulp-posthtml'),
   posthtmlBem = require('posthtml-bem'),
   rename = require('gulp-rename'),
-  buffer = require('vinyl-buffer')
+  buffer = require('vinyl-buffer'),
+  webpack = require('webpack-stream')
 
 gulp.task('templates', function() {
   var bemConfig = {
@@ -32,7 +33,7 @@ gulp.task('templates', function() {
 })
 
 gulp.task('styles', function() {
-  return gulp.src('./src/styles/root.scss')
+  return gulp.src('./src/styles/index.scss')
   .pipe(sassGlob())
   .pipe(sass({ outputStyle: 'expanded' }))
   .pipe(postcss([autoprefixer({ browsers: ['ie 11']  })]))
@@ -41,8 +42,8 @@ gulp.task('styles', function() {
 })
 
 gulp.task('scripts', function() {
-  return gulp.src('./src/scripts/scripts.js')
-    .pipe(rename({ dirname: '' }))
+  return gulp.src('./src/scripts/index.js')
+    .pipe(webpack( require('./webpack.config.js') ))
     .pipe(gulp.dest('./'))
 })
 
@@ -73,7 +74,7 @@ gulp.task('imagemin', function() {
 gulp.task('watcher', function() {
   gulp.watch('./src/templates/**/*.php', ['templates'])
   gulp.watch(['./src/styles/*.scss', './src/styles/blocks/*.scss'], ['styles'])
-  gulp.watch('./src/scripts/scripts.js', ['scripts'])
+  gulp.watch('./src/scripts/**/*.js', ['scripts'])
 })
 
 gulp.task('default', function() {

@@ -9,6 +9,16 @@
   "main": "gulpfile.js",
   "devDependencies": {
     "autoprefixer": "^6.7.7",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.12.1",
+    "eslint-plugin-react": "^7.5.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^3.1.1",
@@ -21,7 +31,10 @@
     "jeet": "^7.2.0",
     "posthtml-bem": "^0.2.2",
     "run-sequence": "^1.2.2",
-    "vinyl-buffer": "^1.0.0"
+    "uglifyjs-webpack-plugin": "^1.1.2",
+    "vinyl-buffer": "^1.0.0",
+    "webpack": "^3.9.1",
+    "webpack-stream": "^4.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

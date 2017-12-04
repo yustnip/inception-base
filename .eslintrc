@@ -1,0 +1,15 @@
+{
+  "env": {
+    "es6": true
+  },
+  "rules": {
+    "semi": ["error", "never"],
+    "no-unused-vars": "error",
+    "jsx-quotes": ["error", "prefer-double"],
+    "react/jsx-no-duplicate-props": "error",
+    "react/jsx-uses-react": ["error"],
+    "react/jsx-uses-vars": ["error"]
+  },
+  "plugins": ["react"],
+  "parser": "babel-eslint"
+}
