@@ -84,6 +84,11 @@ gulp.task('imagemin', function() {
     .pipe(gulp.dest('./images'))
 })
 
+gulp.task('copy', () => {
+  return gulp.src(['./src/images/*.svg'])
+    .pipe(gulp.dest('./images'))
+})
+
 gulp.task('watcher', function() {
   gulp.watch('./src/templates/**/*.php', ['templates'])
   gulp.watch(['./src/styles/*.scss', './src/styles/blocks/*.scss'], ['styles'])
@@ -91,9 +96,9 @@ gulp.task('watcher', function() {
 })
 
 gulp.task('default', function() {
-  runSequence('templates', 'styles', 'scripts-dev', 'watcher')
+  runSequence('templates', 'styles', 'scripts-dev', 'copy', 'watcher')
 })
 
 gulp.task('prod', function() {
-  runSequence('clean', 'templates', 'scripts-prod', 'spritesmith', 'imagemin', 'styles')
+  runSequence('clean', 'templates', 'scripts-prod', 'spritesmith', 'imagemin', 'styles', 'copy')
 })
