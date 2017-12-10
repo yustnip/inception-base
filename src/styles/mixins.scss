@@ -3,3 +3,8 @@
   outline: none;
   background: none;
 }
+
+@mixin clearHeader() {
+  margin: 0;
+  font-weight: normal;
+}
