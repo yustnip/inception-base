@@ -12,3 +12,4 @@ scripts.js.map
 !header.php
 !index.php
 !src/templates/*
+!includes/*/*

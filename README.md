@@ -1,7 +1,7 @@
 # Inception Base
 **Boilerplate for quick start a WordPress project**
 
-Technologies: [PostHTML](https://github.com/posthtml/posthtml) with [PostHTML-bem](https://github.com/rajdee/posthtml-bem), [Sass/SCSS](http://sass-lang.com/) and [autoprefixer](https://github.com/postcss/autoprefixer), [Babel](https://babeljs.io/), [spritesmith](https://github.com/Ensighten/spritesmith), [imagemin](https://github.com/imagemin/imagemin), [Jeet](http://jeet.gs/), [slick](http://kenwheeler.github.io/slick/).
+Technologies: [PostHTML](https://github.com/posthtml/posthtml) with [PostHTML-bem](https://github.com/rajdee/posthtml-bem), [Babel](https://babeljs.io/), [Sass/SCSS](http://sass-lang.com/) and [autoprefixer](https://github.com/postcss/autoprefixer), [spritesmith](https://github.com/Ensighten/spritesmith), [imagemin](https://github.com/imagemin/imagemin), [Jeet](http://jeet.gs/), [slick](http://kenwheeler.github.io/slick/).
 
 ## Setup
 1. Clone the repo to `themes` folder of WordPress:

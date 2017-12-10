@@ -79,5 +79,10 @@ register_nav_menus( array(
     'primary' => esc_html__( 'primary', 'inception-base' )
 ) );
 
-/* New image types
-add_image_size('work_list', 500, 350, true); */
+// New image types
+// add_image_size('work_list', 500, 350, true);
+
+// add_action( 'carbon_fields_register_fields', 'crb_register_custom_fields' );
+// function crb_register_custom_fields() {
+//   require_once __DIR__ . '/includes/carbon-fields/theme_options.php';
+// }
