@@ -87,7 +87,7 @@ gulp.task('imagemin', function() {
 gulp.task('watcher', function() {
   gulp.watch('./src/templates/**/*.php', ['templates'])
   gulp.watch(['./src/styles/*.scss', './src/styles/blocks/*.scss'], ['styles'])
-  gulp.watch('./src/scripts/**/*.js', ['scripts'])
+  gulp.watch('./src/scripts/**/*.js', ['scripts-dev'])
 })
 
 gulp.task('default', function() {
