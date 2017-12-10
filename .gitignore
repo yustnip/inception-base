@@ -11,5 +11,5 @@ scripts.js.map
 !functions.php
 !header.php
 !index.php
-!src/templates/*
-!includes/*/*
+!src/templates/**
+!includes/**

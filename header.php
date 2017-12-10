@@ -9,3 +9,4 @@
 </head>
 
 <body <?php body_class(); ?>>
+  <?php include('header-content.php'); ?>
