@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+const gulp = require('gulp'),
   spritesmith = require('gulp.spritesmith'),
   imagemin = require('gulp-imagemin'),
   postcss = require('gulp-postcss'),
@@ -14,14 +14,14 @@ var gulp = require('gulp'),
   webpack = require('webpack-stream'),
   del = require('del')
 
-gulp.task('templates', function() {
-  var bemConfig = {
+gulp.task('templates', () => {
+  const bemConfig = {
     elemPrefix: '__',
     modPrefix: '_',
     modDlmtr: '--'
   }
-  var plugins = [posthtmlBem(bemConfig)]
-  var options = {
+  const plugins = [posthtmlBem(bemConfig)]
+  const options = {
     directives: [
       { name: '?php', start: '<', end: '>' }
     ]
@@ -33,7 +33,7 @@ gulp.task('templates', function() {
     .pipe(gulp.dest('./'))
 })
 
-gulp.task('styles', function() {
+gulp.task('styles', () => {
   return gulp.src('./src/styles/index.scss')
   .pipe(sassGlob())
   .pipe(sass({ outputStyle: 'expanded' }))
@@ -42,26 +42,26 @@ gulp.task('styles', function() {
   .pipe(gulp.dest('./'))
 })
 
-gulp.task('scripts-dev', function() {
+gulp.task('scripts-dev', () => {
   return gulp.src('./src/scripts/index.js')
     .pipe(webpack( require('./webpack/webpack-dev.config.js') ))
     .pipe(gulp.dest('./'))
 })
 
-gulp.task('scripts-prod', function() {
+gulp.task('scripts-prod', () => {
   return gulp.src('./src/scripts/index.js')
     .pipe(webpack( require('./webpack/webpack-prod.config.js') ))
     .pipe(gulp.dest('./'))
 })
 
-gulp.task('clean', function() {
+gulp.task('clean', () => {
   return del([
     './scripts.js.map'
   ])
 })
 
-gulp.task('spritesmith', function() {
-  var spriteData = gulp.src('./src/images/sprite/*.png').pipe(spritesmith({
+gulp.task('spritesmith', () => {
+  const spriteData = gulp.src('./src/images/sprite/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
     imgPath: 'images/sprite.png',
     cssName: 'sprite.scss'
@@ -74,7 +74,7 @@ gulp.task('spritesmith', function() {
   spriteData.css.pipe(gulp.dest('./src/styles/generated'))
 })
 
-gulp.task('imagemin', function() {
+gulp.task('imagemin', () => {
   return gulp.src('./src/images/*.{gif,jpeg,jpg,png}')
     .pipe(imagemin([
       imagemin.gifsicle({ interlaced: true }),
@@ -89,16 +89,16 @@ gulp.task('copy', () => {
     .pipe(gulp.dest('./images'))
 })
 
-gulp.task('watcher', function() {
+gulp.task('watcher', () => {
   gulp.watch('./src/templates/**/*.php', ['templates'])
   gulp.watch(['./src/styles/*.scss', './src/styles/blocks/*.scss'], ['styles'])
   gulp.watch('./src/scripts/**/*.js', ['scripts-dev'])
 })
 
-gulp.task('default', function() {
+gulp.task('default', () => {
   runSequence('templates', 'styles', 'scripts-dev', 'copy', 'watcher')
 })
 
-gulp.task('prod', function() {
+gulp.task('prod', () => {
   runSequence('clean', 'templates', 'scripts-prod', 'spritesmith', 'imagemin', 'styles', 'copy')
 })
