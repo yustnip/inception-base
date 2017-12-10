@@ -1,5 +1,12 @@
 @import 'node_modules/jeet/jeet';
 
+// @font-face {
+//   font-family: PT-Sans;
+//   src: url('fonts/PT-Sans-Regular.woff') format('woff'),
+//        url('fonts/PT-Sans-Regular.woff2') format('woff2');
+//   font-weight: 400;
+// }
+
 html {
   font-family: $fontFamily;
   font-size: $fontSize;
