@@ -17,6 +17,11 @@ html {
   box-sizing: inherit;
 }
 
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
 .container {
   @include center();
 }
