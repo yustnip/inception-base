@@ -12,7 +12,8 @@ const gulp = require('gulp'),
   rename = require('gulp-rename'),
   buffer = require('vinyl-buffer'),
   webpack = require('webpack-stream'),
-  del = require('del')
+  del = require('del'),
+  cleanCSS = require('gulp-clean-css')
 
 gulp.task('templates', () => {
   const bemConfig = {
@@ -40,6 +41,12 @@ gulp.task('styles', () => {
   .pipe(postcss([autoprefixer({ browsers: ['ie 11']  })]))
   .pipe(concat('style.css'))
   .pipe(gulp.dest('./'))
+})
+
+gulp.task('minify-css', () => {
+  return gulp.src('./style.css')
+    .pipe(cleanCSS())
+    .pipe(gulp.dest('./'))
 })
 
 gulp.task('scripts-dev', () => {
@@ -100,5 +107,14 @@ gulp.task('default', () => {
 })
 
 gulp.task('prod', () => {
-  runSequence('clean', 'templates', 'scripts-prod', 'spritesmith', 'imagemin', 'styles', 'copy')
+  runSequence(
+    'clean',
+    'templates',
+    'scripts-prod',
+    'spritesmith',
+    'imagemin',
+    'styles',
+    'minify-css',
+    'copy'
+  )
 })
