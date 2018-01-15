@@ -21,6 +21,7 @@
     "eslint": "^4.13.0",
     "eslint-plugin-react": "^7.5.1",
     "gulp": "^3.9.1",
+    "gulp-cache": "^1.0.2",
     "gulp-clean-css": "^3.9.2",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^4.0.0",

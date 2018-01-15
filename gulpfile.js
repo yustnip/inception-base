@@ -13,7 +13,8 @@ const gulp = require('gulp'),
   buffer = require('vinyl-buffer'),
   webpack = require('webpack-stream'),
   del = require('del'),
-  cleanCSS = require('gulp-clean-css')
+  cleanCSS = require('gulp-clean-css'),
+  cache = require('gulp-cache')
 
 gulp.task('templates', () => {
   const bemConfig = {
@@ -63,6 +64,7 @@ gulp.task('scripts-prod', () => {
 
 gulp.task('clean', () => {
   return del([
+    './images/**',
     './scripts.js.map'
   ])
 })
@@ -81,7 +83,17 @@ gulp.task('spritesmith', () => {
   spriteData.css.pipe(gulp.dest('./src/styles/generated'))
 })
 
-gulp.task('imagemin', () => {
+gulp.task('imagemin-dev', () => {
+  return gulp.src('./src/images/*.{gif,jpeg,jpg,png}')
+    .pipe(cache(imagemin([
+      imagemin.gifsicle({ interlaced: true }),
+      imagemin.jpegtran({ progressive: true }),
+      imagemin.optipng({ optimizationLevel: 5 })
+    ])))
+    .pipe(gulp.dest('./images'))
+})
+
+gulp.task('imagemin-prod', () => {
   return gulp.src('./src/images/*.{gif,jpeg,jpg,png}')
     .pipe(imagemin([
       imagemin.gifsicle({ interlaced: true }),
@@ -103,17 +115,25 @@ gulp.task('watcher', () => {
 })
 
 gulp.task('default', () => {
-  runSequence('templates', 'styles', 'scripts-dev', 'copy', 'watcher')
+  runSequence(
+    'templates',
+    'styles',
+    'scripts-dev',
+    'spritesmith',
+    'imagemin-dev',
+    'copy',
+    'watcher'
+  )
 })
 
 gulp.task('prod', () => {
   runSequence(
     'clean',
     'templates',
+    'styles',
     'scripts-prod',
     'spritesmith',
-    'imagemin',
-    'styles',
+    'imagemin-prod',
     'minify-css',
     'copy'
   )

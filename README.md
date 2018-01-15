@@ -19,5 +19,5 @@ Technologies: [PostHTML](https://github.com/posthtml/posthtml) with [PostHTML-be
 ### Commands
 Use the following commands to run the build:
 
-* `npm start` - for the default task with PostHTML, Babel, Sass and watchers for .php, .js and .scss source files;
-* `npm run prod` - the task with PostHTML, Babel, Sass, spritesmith, imagemin and without watchers.
+* `npm start` - for the default task with PostHTML, Babel, Sass, spritesmith, imagemin and watchers for .php, .js and .scss source files;
+* `npm run prod` - the task with PostHTML, Babel, Sass, spritesmith, imagemin but without watchers and cache.
